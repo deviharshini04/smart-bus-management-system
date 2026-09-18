@@ -1,0 +1,28 @@
+# Python virtual environments
+.venv/
+venv/
+env/
+
+# Python cache and test artifacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local SQLite databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Java compiled files
+*.class
+java/bin/
+
+# IDE files
+.idea/
+.vscode/
+*.iml
+
+# Temporary system files
+.DS_Store
+Thumbs.db
+*.swp

@@ -1,0 +1,16 @@
+<header class="site-header">
+    <a class="brand" href="{{ url_for('home') }}"><span class="brand-mark">SB</span><span>SMART BUS</span></a>
+    <nav class="main-nav">
+        {% if current_user %}
+            {% if current_user.role == 'OWNER' %}
+                <a href="{{ url_for('owner_dashboard') }}">Dashboard</a><a href="{{ url_for('owner_register') }}">Register Bus</a><a href="{{ url_for('owner_dashboard') }}">My Buses</a>
+            {% else %}
+                <a href="{{ url_for('customer') }}">Search Buses</a><a href="{{ url_for('cancel_booking') }}">My Bookings</a>
+            {% endif %}
+            <span class="user-chip">{{ current_user.name }}</span>
+            <form method="post" action="{{ url_for('logout') }}"><button class="nav-button" type="submit">Logout</button></form>
+        {% else %}
+            <a href="{{ url_for('home') }}#features">Features</a><a href="{{ url_for('signin') }}">Sign In</a><a class="nav-cta" href="{{ url_for('signup') }}">Get Started</a>
+        {% endif %}
+    </nav>
+</header>
