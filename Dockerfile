@@ -1,14 +1,14 @@
-FROM python:3.12-slim
+FROM eclipse-temurin:17-jdk-jammy
 
 RUN apt-get update \
-    && apt-get install -y openjdk-17-jdk \
+    && apt-get install -y python3 python3-pip \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
 COPY . .
 
-RUN pip install --no-cache-dir -r python/requirements.txt
+RUN pip3 install --no-cache-dir -r python/requirements.txt
 
 ENV PYTHONPATH=/app/python
 
